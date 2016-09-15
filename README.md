@@ -14,6 +14,7 @@ Time spent: `<3.5>`
 #### Advance
 
 - [x] Added clear navition bar button.
+- [x] Added option to divide total bill in more than one person.
 
 ### Walkthrough
 
