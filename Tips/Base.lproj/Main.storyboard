@@ -9,7 +9,7 @@
         <!--Tip Calculator-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Tips" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="tippy" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="KRg-kq-bgU"/>
                         <viewControllerLayoutGuide type="bottom" id="NiC-os-UHm"/>
@@ -18,10 +18,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nW3-92-jgn">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nW3-92-jgn" userLabel="SeparatorView">
                                 <rect key="frame" x="16" y="190" width="292" height="5"/>
                                 <animations/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="1" green="0.94902344270000005" blue="0.2217749768" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bill" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QRE-0B-zcl">
                                 <rect key="frame" x="16" y="89" width="150" height="21"/>
@@ -80,12 +80,13 @@
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="D4i-Uq-ZKk">
                                 <rect key="frame" x="16" y="266" width="288" height="29"/>
                                 <animations/>
+                                <color key="backgroundColor" red="0.98964951408631174" green="1" blue="0.11019300183230962" alpha="1" colorSpace="calibratedRGB"/>
                                 <segments>
                                     <segment title="15%"/>
                                     <segment title="20%"/>
                                     <segment title="25%"/>
                                 </segments>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" red="0.18478774082731253" green="0.21115879181799435" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="calculateTip:" destination="BYZ-38-t0r" eventType="valueChanged" id="sx8-Lu-k7w"/>
                                 </connections>
@@ -93,7 +94,8 @@
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="LEP-QT-C1e">
                                 <rect key="frame" x="16" y="319" width="94" height="29"/>
                                 <animations/>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="1" green="0.94902344270946226" blue="0.22177497679191416" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.11223969923133292" green="0.19403066551932424" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="tipSplitterChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="GbF-LJ-5mi"/>
                                 </connections>
@@ -108,19 +110,21 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" fixedFrame="YES" image="person.png" translatesAutoresizingMaskIntoConstraints="NO" id="bnZ-1F-Dhu">
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.20000000000000001" contentMode="scaleAspectFit" fixedFrame="YES" image="person.png" translatesAutoresizingMaskIntoConstraints="NO" id="bnZ-1F-Dhu">
                                         <rect key="frame" x="43" y="5" width="24" height="23"/>
                                         <animations/>
+                                        <color key="backgroundColor" red="0.27560614890000001" green="1" blue="0.3512158346" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="tintColor" red="0.27560614890000001" green="1" blue="0.3512158346" alpha="1" colorSpace="calibratedRGB"/>
                                     </imageView>
                                 </subviews>
                                 <animations/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.27560614890000001" green="1" blue="0.3512158346" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="90" id="S3N-XV-4Gj"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mxF-2a-Ui6">
-                                <rect key="frame" x="216" y="319" width="88" height="29"/>
+                                <rect key="frame" x="198" y="319" width="106" height="29"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -128,7 +132,7 @@
                             </label>
                         </subviews>
                         <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.27560614890000001" green="1" blue="0.3512158346" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="ROk-6O-Nfg" firstAttribute="bottom" secondItem="LEP-QT-C1e" secondAttribute="bottom" id="0yf-8v-7kA"/>
@@ -152,7 +156,7 @@
                             <constraint firstItem="mxF-2a-Ui6" firstAttribute="top" secondItem="ROk-6O-Nfg" secondAttribute="top" id="YgJ-wu-oXC"/>
                             <constraint firstAttribute="trailing" secondItem="nW3-92-jgn" secondAttribute="trailing" constant="12" id="ZEf-nn-XHf"/>
                             <constraint firstItem="LEP-QT-C1e" firstAttribute="top" secondItem="D4i-Uq-ZKk" secondAttribute="bottom" constant="25" id="abp-SY-cNV"/>
-                            <constraint firstItem="mxF-2a-Ui6" firstAttribute="leading" secondItem="ROk-6O-Nfg" secondAttribute="trailing" constant="8" symbolic="YES" id="egg-Ld-PBl"/>
+                            <constraint firstItem="mxF-2a-Ui6" firstAttribute="leading" secondItem="ROk-6O-Nfg" secondAttribute="trailing" constant="-10" id="egg-Ld-PBl"/>
                             <constraint firstItem="a7a-i7-LaM" firstAttribute="top" secondItem="QRE-0B-zcl" secondAttribute="bottom" constant="25" id="his-B4-OYm"/>
                             <constraint firstItem="rJr-bc-I09" firstAttribute="leading" secondItem="a7a-i7-LaM" secondAttribute="trailing" id="kGW-rH-4mp"/>
                             <constraint firstItem="ROk-6O-Nfg" firstAttribute="leading" secondItem="LEP-QT-C1e" secondAttribute="trailing" constant="8" id="l1w-jK-aaK"/>
@@ -190,6 +194,7 @@
                         <outlet property="billField" destination="h1Y-bD-pG6" id="YDi-C2-92I"/>
                         <outlet property="individualLabel" destination="mxF-2a-Ui6" id="XuX-U8-W54"/>
                         <outlet property="numOfPersonsLabel" destination="MCZ-JD-r72" id="cH4-T7-UQ8"/>
+                        <outlet property="numOfPersonsView" destination="ROk-6O-Nfg" id="lFB-qQ-9Ge"/>
                         <outlet property="tipLabel" destination="rJr-bc-I09" id="GeV-2i-6tp"/>
                         <outlet property="tipSelector" destination="D4i-Uq-ZKk" id="mHo-5p-cEV"/>
                         <outlet property="tipSplitter" destination="LEP-QT-C1e" id="6j7-tm-o3f"/>
@@ -208,7 +213,7 @@
         <!--Settings-->
         <scene sceneID="wJJ-Bd-xqd">
             <objects>
-                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="currentContext" id="gsf-Bu-NHT" customClass="SettingsViewController" customModule="Tips" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="currentContext" id="gsf-Bu-NHT" customClass="SettingsViewController" customModule="tippy" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2OP-PG-PPu"/>
                         <viewControllerLayoutGuide type="bottom" id="OMv-n6-I0N"/>
@@ -217,29 +222,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="bOk-F2-n3J">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="bOk-F2-n3J">
                                 <rect key="frame" x="24" y="125" width="272" height="29"/>
                                 <animations/>
+                                <color key="backgroundColor" red="1" green="0.94902344270000005" blue="0.2217749768" alpha="1" colorSpace="calibratedRGB"/>
                                 <segments>
                                     <segment title="15%"/>
                                     <segment title="20%"/>
                                     <segment title="25%"/>
                                 </segments>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" red="0.046502056110000002" green="0.081942655540000006" blue="0.69435127620000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="tipChanged:" destination="gsf-Bu-NHT" eventType="valueChanged" id="Ly6-Uv-ZUU"/>
                                 </connections>
                             </segmentedControl>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Default Tip" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WnQ-zS-EX3">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Default Tip" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WnQ-zS-EX3">
                                 <rect key="frame" x="24" y="89" width="272" height="21"/>
                                 <animations/>
+                                <color key="tintColor" red="0.98757802110000004" green="1" blue="0.95393339020000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
+                                <color key="textColor" red="0.046502056107735598" green="0.081942655540694256" blue="0.6943512761780104" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="highlightedColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="shadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </label>
                         </subviews>
                         <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.27560614890000001" green="1" blue="0.3512158346" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="0.84509980370000004" green="0.80155463019999995" blue="0.27663068610000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="WnQ-zS-EX3" firstAttribute="top" secondItem="2OP-PG-PPu" secondAttribute="bottom" constant="25" id="6Vk-vK-DfO"/>
                             <constraint firstItem="WnQ-zS-EX3" firstAttribute="leading" secondItem="pqu-e7-LjI" secondAttribute="leadingMargin" constant="8" id="FQa-B5-fAl"/>

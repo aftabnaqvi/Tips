@@ -17,15 +17,35 @@ class ViewController: UIViewController {
     @IBOutlet weak var tipSplitter: UIStepper!
     @IBOutlet weak var individualLabel: UILabel!
     @IBOutlet weak var numOfPersonsLabel: UILabel!
+
+    @IBOutlet weak var numOfPersonsView: UIView!
     
     let tipPercentages = [0.15, 0.20, 0.25]
     var defaultTip = Utils.getDefaultTip()
+    var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.numOfPersonsView.alpha = 0
+        self.tipSplitter.alpha = 0
+        self.individualLabel.alpha = 0
+        self.tipSelector.alpha = 0
+        appDelegate.myViewController = self
+        
+        self.billField.becomeFirstResponder()
+        
         tipSplitter.value = 1;
         tipSelector.selectedSegmentIndex = defaultTip
-        // Do any additional setup after loading the view, typically from a nib.
+        let savedBillValue = Utils.getSavedBillAmount()
+        if(savedBillValue == 0.0){
+            billField.text = ""
+        } else {
+            billField.text = String(format: "%.2f", savedBillValue)
+            defaultTip = Utils.getDefaultTip()
+            tipSelector.selectedSegmentIndex = defaultTip
+            calculateTip(tipSelector)
+        }
     }
 
 
@@ -55,8 +75,9 @@ class ViewController: UIViewController {
         }
         numOfPersonsLabel.text = String(format: "%d x", numberOfPeople )
         let value = getTotalAndTip()
-        individualLabel.text=String(format: "$%.2f", value.total/Double(numberOfPeople) )
+        individualLabel.text = "$" + getFormattedString(value.total/Double(numberOfPeople))
     }
+
     @IBAction func clearTip(sender: AnyObject) {
         billField.text = ""
         individualLabel.text=String(format: "$%.2f", 0.00 )
@@ -65,11 +86,28 @@ class ViewController: UIViewController {
     }
     
     @IBAction func calculateTip(sender: AnyObject) {
-        let value = getTotalAndTip()
-        tipLabel.text = String(format: "$%.2f", value.tip)
-        totalLabel.text=String(format: "$%.2f", value.total)
+        UIView.animateWithDuration(0.4, animations: {
+            // This causes first view to fade in and second view to fade out
+            self.numOfPersonsView.alpha = 1
+            self.tipSplitter.alpha = 1;
+            self.individualLabel.alpha = 1;
+            self.tipSelector.alpha = 1
+        })
         
-        individualLabel.text=String(format: "$%.2f", value.total/Double(tipSplitter.value == 0  ? 1 : tipSplitter.value) )
+        let value = getTotalAndTip()
+        tipLabel.text = "$" + getFormattedString(value.tip)
+        totalLabel.text = "$" + getFormattedString(value.total)
+        individualLabel.text = "$" + getFormattedString(value.total/Double(tipSplitter.value == 0  ? 1 : tipSplitter.value))
+    }
+    
+    //  currency thousands separator.
+    //http://stackoverflow.com/questions/29999024/adding-thousand-separator-to-int-in-swift
+    func getFormattedString(number : Double) -> String{
+        let fmt = NSNumberFormatter()
+        fmt.numberStyle = .DecimalStyle
+        let roundNumber = Int(number * 100)
+        
+        return fmt.stringFromNumber(Double(roundNumber)/100.00)!
     }
     
     func getTotalAndTip() ->(tip: Double, total: Double){
@@ -80,5 +118,8 @@ class ViewController: UIViewController {
         return (tip, total)
     }
     
+    func getBillAmount() -> Double{
+        return Double(billField.text!) ?? 0
+    }
 }
 
